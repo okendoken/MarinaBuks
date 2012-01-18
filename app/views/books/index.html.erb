@@ -1,0 +1,18 @@
+<h1>BEST BOOKS <span style="color: rgb(107, 177, 47);">EVER</span></h1>
+<h2>Books which mostly <span style="color: rgb(22, 125, 230);">changed your life</span></h2>
+<div class='question'>
+  <%= form_for @book, :html => {:class => 'simple_form'} do |f| %>
+      <fieldset>
+        <h3 class="email">Just start typing book title</h3>
+        <div class="row">
+          <%= f.autocomplete_field :title, autocomplete_book_title_books_path,
+                                   :display_value => :full_name, :class => 'string email required text',
+                                   :placeholder => 'Harry Potter and the Order of the Phoenix',
+                                   :id_element => '#book_id' %>
+          <%= f.submit 'Vote!', :class => 'submit' %>
+          <%= f.hidden_field :id%>
+        </div>
+      </fieldset>
+  <% end %>
+
+</div>

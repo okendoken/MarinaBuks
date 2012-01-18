@@ -1,0 +1,15 @@
+<h1>THANK <span style="color: rgb(107, 177, 47);">YOU</span></h1>
+
+<table class="books">
+  <tr>
+    <th>Title</th>
+    <th>Votes</th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.full_name %></td>
+    <td><%= book.vote_count %></td>
+  </tr>
+<% end %>
+</table>
