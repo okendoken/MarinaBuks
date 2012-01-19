@@ -2,17 +2,11 @@
 <html>
 <head>
   <title>MarinaBuks</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
   <%= stylesheet_link_tag "/stylesheets/main.css" %>
   <%= javascript_include_tag 'jquery-1.7.1.min.js', 'jquery-ui-1.8.17.custom.min.js', 'autocomplete-rails.js', 'rails.js'  %>
   <%= stylesheet_link_tag 'jquery-ui-1.8.17.custom.css' %>
 </head>
 <body>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <div class="container">
   <%= yield %>

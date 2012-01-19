@@ -1,13 +1,16 @@
 GreatWork::Application.routes.draw do
   root :to => "books#index"
 
-    resources :books do
-      get :autocomplete_book_title, :on => :collection
-    end
+  resources :books do
+    get :autocomplete_book_title, :on => :collection
+  end
 
   resources :user
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
+    get 'sign_in', :to => 'users/sessions#new', :as => :new_user_session
+    get 'sign_out', :to => 'users/sessions#destroy', :as => :destroy_user_session
+  end
 
   match '/thank_you' => 'books#thank_you'
 
