@@ -1,7 +1,7 @@
-<h1>BEST BOOKS <span style="color: rgb(107, 177, 47);">EVER</span></h1>
+<h1>BEST <span style="color: rgb(22, 125, 230);">TWO</span> BOOKS <span style="color: rgb(107, 177, 47);">EVER</span></h1>
 <h2>Books which mostly <span style="color: rgb(22, 125, 230);">changed your life</span></h2>
 <div class='question'>
-  <%= form_for @book, :html => {:class => 'simple_form'} do |f| %>
+  <%= form_for @book, :url => '/vote', :html => {:class => 'simple_form', :id => 'book_form'} do |f| %>
       <fieldset>
         <h3 class="email">Just start typing book title</h3>
         <div class="row">
@@ -9,10 +9,37 @@
                                    :display_value => :full_name, :class => 'string email required text',
                                    :placeholder => 'Harry Potter and the Order of the Phoenix',
                                    :id_element => '#book_id' %>
-          <%= f.submit 'Vote!', :class => 'submit' %>
+          <%= f.submit 'Vote!', :class => 'submit'%>
           <%= f.hidden_field :id%>
         </div>
       </fieldset>
   <% end %>
+  <script type="text/javascript">
+      $(function() {
+          $("#login_dialog").dialog({
+              autoOpen: false,
+              modal: true,
+              draggable: false,
+              resizable: false
+          });
+          $("#book_form").submit(function(e){
+              $.post("/vote", $("#book_form").serialize(), function(data) {
+                  $("#login_dialog").dialog('open');
+              });
+              e.stopPropagation();
+              return false;
+          });
+          $("#fb_login").click(function(e) {
+              popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+              e.stopPropagation(); return false;
+          })
+      });
+  </script>
+
+  <div id="login_dialog" title="Sign Up to vote">
+    <%= link_to 'Sign up Facebook',
+                user_omniauth_authorize_path(:facebook), :class => "fb-login-button",
+                :id => "fb_login", :"data-width" => 600, :"data-height" => 400 %>
+  </div>
 
 </div>

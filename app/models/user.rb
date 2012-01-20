@@ -11,9 +11,17 @@ class User < ActiveRecord::Base
     data = access_token.extra.raw_info
     if user = User.where(:email => data.email).first
       user
-    else # Create a user with a stub password.
+    else
+      # Create a user with a stub password.
+      #todo i can get more user info here. not just email
       User.create!(:email => data.email, :password => Devise.friendly_token[0,20])
     end
+  end
+
+  def self.find_or_create_for_facebook_oauth(access_token, signed_in_resource=nil)
+    new_user = find_for_facebook_oauth(access_token, signed_in_resource)
+    new_user.save
+    new_user
   end
 
   def self.new_with_session(params, session)

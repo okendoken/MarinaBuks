@@ -3,7 +3,8 @@
 <head>
   <title>MarinaBuks</title>
   <%= stylesheet_link_tag "/stylesheets/main.css" %>
-  <%= javascript_include_tag 'jquery-1.7.1.min.js', 'jquery-ui-1.8.17.custom.min.js', 'autocomplete-rails.js', 'rails.js'  %>
+  <%= javascript_include_tag 'jquery-1.7.1.min.js', 'jquery-ui-1.8.17.custom.min.js', 'autocomplete-rails.js',
+                             'rails.js', 'application.js'  %>
   <%= stylesheet_link_tag 'jquery-ui-1.8.17.custom.css' %>
 </head>
 <body>
@@ -11,6 +12,6 @@
 <div class="container">
   <%= yield %>
 </div>
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<%= link_to "Some cool link here" %>
 </body>
 </html>

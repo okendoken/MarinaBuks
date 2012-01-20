@@ -14,6 +14,8 @@ GreatWork::Application.routes.draw do
 
   match '/thank_you' => 'books#thank_you'
 
+  match '/vote' => 'books#create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

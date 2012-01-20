@@ -262,3 +262,28 @@ fieldset {
     font-style: italic;
     font-size: 24px;
 }
+
+.ui-widget-overlay{
+    background: rgba(0, 0, 0, .3) none !important;
+}
+
+.ui-widget-header{
+    background: rgb(107, 177, 47) none !important;
+    border-bottom-color: rgb(107, 177, 47) !important;
+    border-left-color: rgb(107, 177, 47) !important;
+    border-right-color: rgb(107, 177, 47) !important;
+    border-top-color: rgb(107, 177, 47) !important;
+}
+
+.fb-login-button{
+    background-position: left -132px;
+    font-size: 10px;
+    line-height: 100px;
+    background: #29447E url(https://s-static.ak.facebook.com/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 0 0 1px;
+    text-decoration: none;
+    outline: none;
+}
