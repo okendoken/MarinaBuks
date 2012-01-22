@@ -136,6 +136,7 @@ body{
 }
 .row {
     display: block;
+    margin-top: 10px;
 }
 
 
@@ -159,72 +160,30 @@ fieldset {
 }
 
 .simple_form .text {
-    background-attachment: scroll;
+    background: rgb(255, 255, 255) repeat-x scroll 0% 0%;
     background-clip: border-box;
-    background-color: rgb(255, 255, 255);
     background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat-x;
     background-size: auto;
-    border-bottom-color: rgb(213, 212, 212);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-left-color: rgb(213, 212, 212);
-    border-left-style: solid;
-    border-left-width: 1px;
-    border-right-color: rgb(213, 212, 212);
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-top-color: rgb(213, 212, 212);
-    border-top-style: solid;
-    border-top-width: 1px;
-    color: rgb(97, 97, 97);
-    float: left;
+    border: 1px solid rgb(213, 212, 212);
+    color: rgb(61, 61, 61);
     font-size: 20px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 9px;
+    margin: 0px;
+    padding: 9px 10px 10px;
     width: 737px;
 }
 
 .simple_form .submit {
-    background-attachment: scroll;
+    background: transparent url("/images/btn-submit.png") no-repeat scroll 0% 0%;
     background-clip: border-box;
-    background-color: transparent;
-    background-image: url("/images/btn-submit.png");
     background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
     background-size: auto;
-    border-bottom-color: currentColor;
-    border-bottom-style: none;
-    border-bottom-width: medium;
-    border-left-color: currentColor;
-    border-left-style: none;
-    border-left-width: medium;
-    border-right-color: currentColor;
-    border-right-style: none;
-    border-right-width: medium;
-    border-top-color: currentColor;
-    border-top-style: none;
-    border-top-width: medium;
+    border: medium none currentColor;
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-size: 30px;
     height: 44px;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
+    margin: 40px auto 0px;
+    padding: 0px;
     text-shadow: 1px 1px 1px rgb(94, 139, 45);
     width: 119px;
 }
@@ -268,22 +227,31 @@ fieldset {
 }
 
 .ui-widget-header{
-    background: rgb(107, 177, 47) none !important;
-    border-bottom-color: rgb(107, 177, 47) !important;
-    border-left-color: rgb(107, 177, 47) !important;
-    border-right-color: rgb(107, 177, 47) !important;
-    border-top-color: rgb(107, 177, 47) !important;
+    background: none !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000000 !important;
+    font-weight: 800;
 }
 
 .fb-login-button{
-    background-position: left -132px;
-    font-size: 10px;
-    line-height: 100px;
-    background: #29447E url(https://s-static.ak.facebook.com/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
-    background-repeat: no-repeat;
+    background: #29447E url("/images/fb-btn-single.png") no-repeat;
+    line-height: 39px;
     cursor: pointer;
     display: inline-block;
-    padding: 0 0 0 1px;
+    padding: 0 5px 0 1px;
     text-decoration: none;
     outline: none;
+    width: 220px;
+    text-align: right;
+    color: white !important;
+}
+
+.author{
+    width: 713px !important;
 }

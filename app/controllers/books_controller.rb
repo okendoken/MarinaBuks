@@ -1,26 +1,46 @@
 class BooksController < ApplicationController
-  autocomplete :book, :title
+  autocomplete :book, :title, :extra_data => [:author]
+  autocomplete :book, :author
 
-  def index
-    @book = Book.new
+  def autocomplete_for_book_author
+    Book.select('distinct author')
   end
 
-  def create
-    books = Book.where(:id => params[:book][:id])
-    if books.empty?
-      redirect_to '/add_please'
+  #accessed via ajax
+  def vote
+    book_1 = Book.where(:id => params[:book_id_1])[0]
+    book_2 = Book.where(:id => params[:book_id_2])[0]
+    session["chosen_book_1"] = book_1
+    session["chosen_book_2"] = book_2
+    if book_1.nil? or book_2.nil?
+      render :text => '/add_please'
     else
-      #book = books[0]
-      session["chosen_book"] = books[0]
-      #book.vote_count = book.vote_count + 1
-      #book.save
-      #redirect_to '/thank_you'
-      #redirect_to user_omniauth_authorize_path(:facebook), :display => "popup", :"data-width" => 600, :"data-height" => 400
+      session["books"] = [book_1, book_2]
       render :text => 'ok'
     end
   end
 
   def thank_you
-    @books = Book.all(:order => 'vote_count desc', :limit => 50)
+    @books = Book.all(:order => 'vote_count desc', :limit => 100)
+  end
+
+  #accessed via ajax
+  def create
+    #todo crappy code. replace someday
+    book_1 = Book.where(:id => params[:book_id_1])[0]
+    if book_1.nil?
+      book_1 = Book.new(:title => params[:title_1], :author => params[:author_1])
+    end
+    book_2 = Book.where(:id => params[:book_id_2])[0]
+    if book_2.nil?
+      book_2 = Book.new(:title => params[:title_2], :author => params[:author_2])
+    end
+    session["books"] = [book_1, book_2]
+    render :text => 'ok'
+  end
+
+  def add_please
+    @book_1 = session["chosen_book_1"].nil? ? Book.new : session["chosen_book_1"]
+    @book_2 = session["chosen_book_2"].nil? ? Book.new : session["chosen_book_2"]
   end
 end

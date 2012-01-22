@@ -1,0 +1,65 @@
+<h1>BEST <span style="color: rgb(22, 125, 230);">TWO</span> BOOKS <span style="color: rgb(107, 177, 47);">EVER</span></h1>
+<h2>We don't know some of the books. Could you please add?</h2>
+<div class='question'>
+  <%= form_tag '/create', :class => 'simple_form', :id => 'new_book_form' do %>
+      <fieldset>
+        <div class="row">
+          <h3 class="email">Fill up this form. Your first choice</h3>
+        </div>
+        <div class="row">
+          <%= autocomplete_field_tag :title_1, @book_1.title, autocomplete_book_title_books_path,
+                                     :display_value => :full_name, :class => 'string email required text',
+                                     :placeholder => 'Harry Potter and the Order of the Phoenix',
+                                     :id_element => '#book_id_1',
+                                     :required => true,
+                                     :update_elements => {:author => '#author_1'}%>
+        </div>
+        <div class="row">
+          <%= label_tag :author_1, 'By'%>
+          <%= autocomplete_field_tag :author_1, @book_1.author, autocomplete_book_author_books_path,
+                                     :class => 'string email required text author',
+                                     :required => true,
+                                     :placeholder => 'J. K. Rowling' %>
+        </div>
+        <div class="row">
+          <h3 class="email">And here is the next one</h3>
+        </div>
+        <div class="row">
+          <%= autocomplete_field_tag :title_2, @book_2.title, autocomplete_book_title_books_path,
+                                     :display_value => :full_name, :class => 'string email required text',
+                                     :placeholder => 'Seven Habits of Highly Effective People',
+                                     :id_element => '#book_id_2',
+                                     :required => true,
+                                     :update_elements => {:author => '#author_2'} %>
+        </div>
+        <div class="row">
+          By <%= autocomplete_field_tag :author_2, @book_2.author, autocomplete_book_author_books_path,
+                                        :class => 'string email required text author',
+                                        :required => true,
+                                        :placeholder => 'Stephen R. Covey' %>
+        </div>
+        <div class="row">
+          <%= submit_tag 'Save', :class => 'submit'%>
+        </div>
+      </fieldset>
+      <%= hidden_field_tag :book_id_1, @book_1.id%>
+      <%= hidden_field_tag :book_id_2, @book_2.id%>
+  <% end %>
+  <script type="text/javascript">
+      $(function() {
+          $("#new_book_form").submit(function(e){
+              $.post("/create", $("#new_book_form").serialize(), function(data) {
+                  if (data == 'ok'){
+                      $("#login_dialog").dialog('open');
+                  } else {
+                      window.location = data;
+                  }
+              });
+              e.stopPropagation();
+              return false;
+          });
+      });
+  </script>
+
+  <%= render 'popup' %>
+</div>

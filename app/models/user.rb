@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
+  has_many :votes
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = User.where(:email => data.email).first
@@ -20,7 +22,7 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_for_facebook_oauth(access_token, signed_in_resource=nil)
     new_user = find_for_facebook_oauth(access_token, signed_in_resource)
-    new_user.save
+    new_user.save unless new_user.persisted?
     new_user
   end
 

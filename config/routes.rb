@@ -3,18 +3,18 @@ GreatWork::Application.routes.draw do
 
   resources :books do
     get :autocomplete_book_title, :on => :collection
+    get :autocomplete_book_author, :on => :collection
   end
 
-  resources :user
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
-    get 'sign_in', :to => 'users/sessions#new', :as => :new_user_session
-    get 'sign_out', :to => 'users/sessions#destroy', :as => :destroy_user_session
+    match '/users/sign_in' => 'home#stub'
+    match '/users/sign_up' => 'home#stub'
   end
 
   match '/thank_you' => 'books#thank_you'
-
-  match '/vote' => 'books#create'
+  match '/create' => 'books#create'
+  match '/vote' => 'books#vote'
+  match '/add_please' => 'books#add_please'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

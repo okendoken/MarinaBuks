@@ -208,5 +208,7 @@ Devise.setup do |config|
   # end
   require "omniauth-facebook"
   config.omniauth :facebook, "278822135506278", "d867a268a26ce5c103cc1b30129915d7",
-                  :client_options => {:ssl => {:ca_file => 'D:\\cacert.pem'}}
+                  :client_options => {:ssl => {:ca_file => 'D:\\cacert.pem'}},
+                  :display => 'popup',
+                  :scope => 'email'
 end
