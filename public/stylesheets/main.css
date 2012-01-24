@@ -273,3 +273,12 @@ fieldset {
     background: -o-gradient(linear, left top, left bottom, color-stop(0%, white),
         color-stop(65%, white), color-stop(100%, #f7f7f7));
 }
+
+#footer{
+    padding-top: 100px;
+    color: rgb(153, 153, 153);
+}
+
+#footer a:visited{
+    color: rgb(153, 153, 153);
+}
