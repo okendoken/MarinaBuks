@@ -13,6 +13,8 @@ class BooksController < ApplicationController
     session["chosen_book_1"] = book_1
     session["chosen_book_2"] = book_2
     if book_1.nil? or book_2.nil?
+      session["chosen_book_1"] = book_1.nil? ? Book.new(:title => params[:title_1]) : session["chosen_book_1"]
+      session["chosen_book_2"] = book_2.nil? ? Book.new(:title => params[:title_2]) : session["chosen_book_2"]
       render :text => '/add_please'
     else
       session["books"] = [book_1, book_2]
@@ -40,7 +42,7 @@ class BooksController < ApplicationController
   end
 
   def add_please
-    @book_1 = session["chosen_book_1"].nil? ? Book.new : session["chosen_book_1"]
-    @book_2 = session["chosen_book_2"].nil? ? Book.new : session["chosen_book_2"]
+    @book_1 = session["chosen_book_1"]
+    @book_2 = session["chosen_book_2"]
   end
 end

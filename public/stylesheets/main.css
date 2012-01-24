@@ -1,14 +1,8 @@
 html {
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
-    background-attachment: scroll;
+    background: rgb(241, 241, 241) url("/images/bg-body-1.gif") repeat scroll 0% 0%;
     background-clip: border-box;
-    background-color: rgb(241, 241, 241);
-    background-image: url("/images/bg-body.gif");
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat;
     background-size: auto;
-    height: 100%
 }
 
 h1{
@@ -111,21 +105,6 @@ body{
     height: 100px;
 }
 
-.cool-button{
-    color: rgb(51, 51, 51);
-    font-weight: 700;
-    height: 24px;
-    line-height: 24px;
-    padding-bottom: 0px;
-    padding-left: 8px;
-    padding-right: 10px;
-    padding-top: 0px;
-    cursor: pointer;
-    font-family: "helvetica", "arial", "freesans", "clean", sans-serif;
-    text-shadow: 1px 1px 0px rgb(255, 255, 255);
-    white-space: nowrap;
-}
-
 .simple_form .row {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -141,22 +120,9 @@ body{
 
 
 fieldset {
-    border-bottom-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-top-style: none;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-}
-
-.simple_form .email {
-
+    border-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 .simple_form .text {
@@ -165,9 +131,19 @@ fieldset {
     background-origin: padding-box;
     background-size: auto;
     border: 1px solid rgb(213, 212, 212);
-    color: rgb(61, 61, 61);
     font-size: 20px;
     margin: 0px;
+    padding: 9px 10px 10px;
+    width: 737px;
+}
+
+.simple_form .text:hover{
+    background: rgb(255, 255, 255) repeat-x scroll 0% 0%;
+    background-clip: border-box;
+    background-size: auto;
+    border: 1px solid rgb(107, 177, 47);
+    font-size: 20px;
+    margin: 0;
     padding: 9px 10px 10px;
     width: 737px;
 }
@@ -189,37 +165,41 @@ fieldset {
 }
 
 .books {
-    color: rgb(97, 97, 97);
-    float: left;
     width: 700px;
     font-size: 30px;
     line-height: 36px;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
+    background: transparent none repeat scroll 0% 0%;
     background-size: auto;
+    text-align: left;
+    background-clip: border-box;
+    background-size: auto;
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 20px;
+    text-align: left;
 }
 
 .books td{
     font-size: 20px;
     line-height: 26px;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
+    margin: 0px auto;
+    background: no-repeat 0% 0%;
     background-size: auto;
+    padding: 9px 8px 0px;
 }
 
+.books tbody tr:hover{
+    color: rgb(107, 177, 47);
+    font-weight: 500;
+}
+
+
 .books th{
-    font-style: italic;
     font-size: 24px;
+    border-bottom: 2px solid ;
+    font-weight: 700;
+    padding: 10px 8px;
+    color: rgb(22, 125, 230);
 }
 
 .ui-widget-overlay{
@@ -254,4 +234,42 @@ fieldset {
 
 .author{
     width: 713px !important;
+}
+
+.ui-autocomplete{
+    text-align: left;
+}
+
+#header{
+    font-family: "HelveticaNeueW01-75Bold", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 5px;
+    text-align: center;
+    text-shadow: 0px 1px 0px rgb(247, 245, 243);
+}
+
+#gradient{
+    height: 100%;
+    width: 720px;
+    padding: 20px;
+    background-color: white;
+
+    /* outer shadows  (note the rgba is red, green, blue, alpha) */
+    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    -o-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+    /* rounded corners */
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white),
+    color-stop(65%, white), color-stop(100%, #f7f7f7));
+    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%);
+    background: -o-gradient(linear, left top, left bottom, color-stop(0%, white),
+        color-stop(65%, white), color-stop(100%, #f7f7f7));
 }

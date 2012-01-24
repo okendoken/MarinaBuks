@@ -1,16 +1,22 @@
-<h1>THANK <span style="color: rgb(107, 177, 47);">YOU</span></h1>
+<h2>Thanks for your vote</h2>
 <p class="notice"><%= notice %></p>
 <%= current_user.email if user_signed_in?%>
-<table class="books">
-  <tr>
-    <th>Title</th>
-    <th>Votes</th>
-  </tr>
+<div id="gradient">
+  <table class="books">
+    <thead>
+    <tr>
+      <th>Book</th>
+      <th>Votes</th>
+    </tr>
+    </thead>
+    <tbody>
 
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.full_name %></td>
-    <td><%= book.vote_count %></td>
-  </tr>
-<% end %>
-</table>
+    <% @books.each do |book| %>
+        <tr>
+          <td><%= book.full_name %></td>
+          <td style="text-align: center;"><%= book.vote_count %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,6 +1,4 @@
-<h1>BEST <span style="color: rgb(22, 125, 230);">TWO</span> BOOKS <span style="color: rgb(107, 177, 47);">EVER</span>
-</h1>
-<h2>Books which mostly <span style="color: rgb(22, 125, 230);">changed your life</span></h2>
+<h2>Books that <span style="color: rgb(22, 125, 230);">changed your life</span></h2>
 <div class='question'>
   <%= form_tag '/vote', :class => 'simple_form', :id => 'book_form' do  %>
       <fieldset>
@@ -17,7 +15,6 @@
         <div class="row">
           <%= autocomplete_field_tag :title_2, '', autocomplete_book_title_books_path,
                                      :display_value => :full_name, :class => 'string email required text',
-                                     :placeholder => 'Seven Habits of Highly Effective People',
                                      :id_element => '#book_id_2' %>
         </div>
         <%= submit_tag 'Vote!', :class => 'submit'%>
