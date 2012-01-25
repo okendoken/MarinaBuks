@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   end
 
   def thank_you
-    @books = Book.all(:order => 'vote_count desc', :limit => 100)
+    @books = Book.all(:order => 'vote_count desc', :limit => 100, :conditions => "vote_count != 0")
   end
 
   #accessed via ajax

@@ -1,7 +1,12 @@
 <h2>Thanks for your vote</h2>
 <p class="notice"><%= notice %></p>
-<%= current_user.email if user_signed_in?%>
 <div id="gradient">
+  <a href="#" onclick="$('#filter').show('slow');">click</a>
+  <div id="filter" style="display: none;">
+    <%= form_tag '/thank_you', :class => 'simple_form', :id => 'book_form', :method => 'get' do  %>
+        <%= select_tag :country, options_from_collection_for_select(User.all, 'id', 'email')%>
+    <% end %>
+  </div>
   <table class="books">
     <thead>
     <tr>
