@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  autocomplete :book, :title, :extra_data => [:author]
+  autocomplete :book, :title, :extra_data => [:author], :full => true
   autocomplete :book, :author
 
   def autocomplete_for_book_author
