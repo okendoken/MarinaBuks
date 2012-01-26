@@ -268,10 +268,10 @@ fieldset {
 
     /* gradients */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white),
-    color-stop(65%, white), color-stop(100%, #f7f7f7));
+    color-stop(65%, white), color-stop(100%, #D5E4F3));
     background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%);
     background: -o-gradient(linear, left top, left bottom, color-stop(0%, white),
-        color-stop(65%, white), color-stop(100%, #f7f7f7));
+        color-stop(65%, white), color-stop(100%, #D5E4F3));
 }
 
 #footer{
@@ -281,4 +281,27 @@ fieldset {
 
 #footer a:visited{
     color: rgb(153, 153, 153);
+}
+
+#likers{
+}
+
+#gp{
+    display: inline;
+}
+
+#tw{
+    display: inline;
+    padding-bottom: 2px;
+    position: relative !important;
+    top: -4px;
+}
+#fb{
+    position: relative;
+    left: 108px;
+    top: -27px;
+}
+
+.opera-tweak{
+    top: -31px !important;
 }
