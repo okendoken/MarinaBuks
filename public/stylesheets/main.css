@@ -305,3 +305,8 @@ fieldset {
 .opera-tweak{
     top: -31px !important;
 }
+
+.hint{
+    display: none;
+    color: rgb(107, 177, 47);
+}

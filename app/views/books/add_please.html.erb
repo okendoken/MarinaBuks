@@ -8,7 +8,7 @@
         <div class="row">
           <%= autocomplete_field_tag :title_1, @book_1.title, autocomplete_book_title_books_path,
                                      :display_value => :full_name, :class => 'string email required text',
-                                     :placeholder => 'Harry Potter',
+                                     :placeholder => 'Book Title',
                                      :id_element => '#book_id_1',
                                      :required => true,
                                      :update_elements => {:author => '#author_1'}%>
@@ -18,7 +18,7 @@
           <%= autocomplete_field_tag :author_1, @book_1.author, autocomplete_book_author_books_path,
                                      :class => 'string email required text author',
                                      :required => true,
-                                     :placeholder => 'J. K. Rowling' %>
+                                     :placeholder => 'Author' %>
         </div>
         <div class="row">
           <h3 class="email">And the next one</h3>

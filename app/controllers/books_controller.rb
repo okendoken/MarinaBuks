@@ -1,9 +1,17 @@
 class BooksController < ApplicationController
   autocomplete :book, :title, :extra_data => [:author], :full => true
-  autocomplete :book, :author
+  autocomplete :book, :author, :full => true
 
-  def autocomplete_for_book_author
-    Book.select('distinct author')
+  def autocomplete_book_author
+    term = params[:term]
+      if term && !term.empty?
+          items = Book.select('distinct author').
+              where("LOWER(author) like ?", '%' + term.downcase + '%').
+              limit(10).order(:author)
+       else
+         items = {}
+       end
+       render :json => json_for_autocomplete(items, :author)
   end
 
   #accessed via ajax

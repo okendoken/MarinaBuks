@@ -5,17 +5,19 @@
         <h3 class="email">Just start typing book title</h3>
         <div class="row">
           <%= autocomplete_field_tag :title_1, '', autocomplete_book_title_books_path,
-                                     :display_value => :full_name, :class => 'string email required text',
-                                     :placeholder => 'Harry Potter and the Order of the Phoenix',
+                                     :class => 'string email required text',
+                                     :placeholder => 'Book Title',
                                      :id_element => '#book_id_1' %>
+          <span id="hit_1" class="hint">Ooops... We can't find your book. But don't worry - you can add a new one.<br/> Just continue to fill out the books and hit enter</span>
         </div>
         <div class="row">
           <h3 class="email">And the next one</h3>
         </div>
         <div class="row">
           <%= autocomplete_field_tag :title_2, '', autocomplete_book_title_books_path,
-                                     :display_value => :full_name, :class => 'string email required text',
+                                     :class => 'string email required text',
                                      :id_element => '#book_id_2' %>
+          <span id="hit_2" class="hint">Ooops... We can't find your book. But don't worry - you can add a new one.<br/> Just hit enter</span>
         </div>
         <%= submit_tag 'Vote!', :class => 'submit'%>
       </fieldset>
@@ -35,6 +37,13 @@
               e.stopPropagation();
               return false;
           });
+          $('#title_1').bind('railsAutocomplete.noData', function (){
+                        $('#hit_1').show('slow');
+                    });
+          $('#title_2').bind('railsAutocomplete.noData', function (){
+                        $('#hit_2').show('slow');
+                    });
+
       });
   </script>
   <%= render 'popup' %>
