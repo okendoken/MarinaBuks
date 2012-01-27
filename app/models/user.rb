@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_for_facebook_oauth(access_token, signed_in_resource=nil)
     new_user = find_for_facebook_oauth(access_token, signed_in_resource)
+    new_user.name = access_token.extra.raw_info.name
     new_user.save unless new_user.persisted?
     new_user
   end
