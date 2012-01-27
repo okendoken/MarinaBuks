@@ -298,8 +298,9 @@ fieldset {
 }
 #fb{
     position: relative;
-    left: 108px;
+    left: 420px;
     top: -27px;
+    width: 30px;
 }
 
 .opera-tweak{
